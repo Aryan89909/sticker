@@ -1,0 +1,58 @@
+{
+    "name": "Netflix Poster Bot",
+    "description": "Telegram bot to scrap posters from Netflix.",
+    "logo": "https://graph.org/file/f8e733f7bc96e522cb45c.jpg",
+    "keywords": [
+        "python3",
+        "telegram",
+        "bot",
+        "NetflixPosterBot",
+        "telegram-bot",
+        "pyrogram"
+    ],
+    "stack": "container",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "A Bot's token from Botfather",
+            "value": "",
+            "required": true
+        },
+        "HEROKU_API_KEY": {
+            "description": "Your Heroku account's API key",
+            "value": "",
+            "required": false
+        },
+        "HEROKU_APP_NAME": {
+            "description": "Your heroku app/bot's name",
+            "value": "",
+            "required": false
+        },
+        "UPSTREAM_REPO": {
+            "description": "If you don't know this, leave as it is",
+            "value": "https://github.com/Aryan89909/nf",
+            "required": true
+        },
+        "UPSTREAM_BRANCH": {
+            "description": "Upstream Repo's Branch Name",
+            "value": "master",
+            "required": true
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        },
+        {
+            "url": "heroku/nodejs"
+        },
+        {
+            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "Eco"
+        }
+    }
+}
